@@ -6,11 +6,11 @@ Este proyecto es una calculadora científica interactiva desarrollada con Python
 ## Instalación
 1. Clona este repositorio:
    ```bash
-   git clone <URL_DEL_REPOSITORIO>
+   git clone https://github.com/palmaant/portafolio-full_stack-jr
    ```
 2. Navega al directorio del proyecto:
    ```bash
-   cd proyecto5-calculadora
+   cd proyecto1-calculadora_c
    ```
 3. Instala las dependencias:
    ```bash
@@ -26,7 +26,7 @@ Este proyecto es una calculadora científica interactiva desarrollada con Python
 
 ## Estructura del Proyecto
 ```
-proyecto5-calculadora/
+proyecto1-calculadora_c/
 ├── api.py                # Contiene las rutas principales de la aplicación.
 ├── calculadora.py        # Lógica para operaciones básicas.
 ├── calculadora_cientifica.py # Lógica para operaciones avanzadas.
