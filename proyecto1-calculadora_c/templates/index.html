@@ -1,0 +1,85 @@
+<!-- Página principal de la calculadora científica -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Metadatos y estilos -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora Científica</title>
+    <link rel="stylesheet" href="/static/styles.css">
+</head>
+<body style="font-family: Arial, sans-serif; background-color: #f0f2f5; margin: 0; padding: 0;">
+    <!-- Encabezado principal -->
+    <header style="background-color: #4267B2; color: white; padding: 20px; text-align: center;">
+        <h1 style="margin: 0; font-size: 2rem;">Calculadora Científica</h1>
+    </header>
+
+    <!-- Contenido principal -->
+    <main style="display: flex; justify-content: center; margin-top: 20px;">
+        <div style="width: 100%; max-width: 600px; background-color: white; border-radius: 8px; box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); padding: 20px;">
+            <!-- Mensaje de bienvenida -->
+            <div style="text-align: center; margin-bottom: 20px;">
+                <h2 style="font-size: 1.5rem; color: #333;">Bienvenido</h2>
+                <p style="color: #555;">Selecciona una operación del menú para comenzar.</p>
+            </div>
+
+            <!-- Botones de navegación -->
+            <div style="text-align: center; margin-bottom: 20px;">
+                <button class="menu-button" onclick="showInicio()" style="padding: 10px 20px; font-size: 16px; background-color: #4267B2; color: white; border: none; border-radius: 5px; margin-bottom: 10px;">Inicio</button>
+                <button class="menu-button" onclick="toggleMenu()" style="padding: 10px 20px; font-size: 16px; background-color: #4267B2; color: white; border: none; border-radius: 5px;">Menú</button>
+            </div>
+
+            <!-- Menú principal -->
+            <div id="menu" class="hidden" style="margin-top: 20px; text-align: center;">
+                <!-- Submenú de operaciones básicas -->
+                <div style="margin-bottom: 20px;">
+                    <button onclick="toggleSubMenu('basicas')" style="padding: 10px 20px; font-size: 14px; background-color: #28a745; color: white; border: none; border-radius: 5px;">Operaciones Básicas</button>
+                    <div id="basicas" class="hidden" style="margin-top: 10px;">
+                        <a href="/suma" style="text-decoration: none;"><button style="padding: 8px 16px; font-size: 14px; background-color: #6c757d; color: white; border: none; border-radius: 5px; margin: 5px;">Suma</button></a>
+                        <a href="/resta" style="text-decoration: none;"><button style="padding: 8px 16px; font-size: 14px; background-color: #6c757d; color: white; border: none; border-radius: 5px; margin: 5px;">Resta</button></a>
+                        <a href="/multiplicacion" style="text-decoration: none;"><button style="padding: 8px 16px; font-size: 14px; background-color: #6c757d; color: white; border: none; border-radius: 5px; margin: 5px;">Multiplicación</button></a>
+                        <a href="/division" style="text-decoration: none;"><button style="padding: 8px 16px; font-size: 14px; background-color: #6c757d; color: white; border: none; border-radius: 5px; margin: 5px;">División</button></a>
+                    </div>
+                </div>
+
+                <!-- Submenú de operaciones avanzadas -->
+                <div>
+                    <button onclick="toggleSubMenu('avanzadas')" style="padding: 10px 20px; font-size: 14px; background-color: #ffc107; color: black; border: none; border-radius: 5px;">Operaciones Avanzadas</button>
+                    <div id="avanzadas" class="hidden" style="margin-top: 10px;">
+                        <a href="/seno" style="text-decoration: none;"><button style="padding: 8px 16px; font-size: 14px; background-color: #17a2b8; color: white; border: none; border-radius: 5px; margin: 5px;">Seno</button></a>
+                        <a href="/coseno" style="text-decoration: none;"><button style="padding: 8px 16px; font-size: 14px; background-color: #17a2b8; color: white; border: none; border-radius: 5px; margin: 5px;">Coseno</button></a>
+                        <a href="/tangente" style="text-decoration: none;"><button style="padding: 8px 16px; font-size: 14px; background-color: #17a2b8; color: white; border: none; border-radius: 5px; margin: 5px;">Tangente</button></a>
+                        <a href="/raiz" style="text-decoration: none;"><button style="padding: 8px 16px; font-size: 14px; background-color: #17a2b8; color: white; border: none; border-radius: 5px; margin: 5px;">Raíz Cuadrada</button></a>
+                        <a href="/potencia" style="text-decoration: none;"><button style="padding: 8px 16px; font-size: 14px; background-color: #17a2b8; color: white; border: none; border-radius: 5px; margin: 5px;">Potencia</button></a>
+                        <a href="/logaritmo" style="text-decoration: none;"><button style="padding: 8px 16px; font-size: 14px; background-color: #17a2b8; color: white; border: none; border-radius: 5px; margin: 5px;">Logaritmo</button></a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Sección de inicio -->
+            <section id="inicio" style="margin-top: 20px; display: none;">
+                <h2 style="font-size: 1.8rem; color: #333;">Inicio</h2>
+                <p style="font-size: 1rem; color: #555;">Bienvenido a la calculadora científica. Usa el menú para seleccionar una operación.</p>
+            </section>
+        </div>
+    </main>
+
+    <!-- Scripts para la funcionalidad -->
+    <script>
+        function toggleMenu() {
+            const menu = document.getElementById('menu');
+            menu.classList.toggle('hidden');
+        }
+
+        function toggleSubMenu(subMenuId) {
+            const subMenu = document.getElementById(subMenuId);
+            subMenu.classList.toggle('hidden');
+        }
+
+        function showInicio() {
+            // Redirige a la interfaz principal sin mostrar ningún mensaje
+            window.location.href = '/';
+        }
+    </script>
+</body>
+</html>

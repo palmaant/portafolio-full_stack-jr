@@ -1,0 +1,39 @@
+<!-- Página para realizar la división de dos números -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Metadatos y estilos -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>División</title>
+    <link rel="stylesheet" href="/static/styles.css">
+</head>
+<body style="font-family: Arial, sans-serif; background-color: #f0f2f5; margin: 0; padding: 0;">
+    <!-- Encabezado principal -->
+    <header style="background-color: #4267B2; color: white; padding: 20px; text-align: center;">
+        <h1 style="margin: 0; font-size: 2rem;">Operación: División</h1>
+    </header>
+
+    <!-- Contenedor principal -->
+    <main style="display: flex; justify-content: center; margin-top: 20px;">
+        <div style="width: 100%; max-width: 600px; background-color: white; border-radius: 8px; box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); padding: 20px;">
+            <!-- Formulario para ingresar los números -->
+            <form action="/calcular_division" method="post" style="text-align: center;">
+                <label for="num1" style="font-size: 1rem; color: #333;">Número 1:</label>
+                <input type="number" id="num1" name="num1" step="any" required style="margin: 10px 0; padding: 10px; font-size: 1rem; width: 100%; max-width: 300px;">
+                <label for="num2" style="font-size: 1rem; color: #333;">Número 2:</label>
+                <input type="number" id="num2" name="num2" step="any" required style="margin: 10px 0; padding: 10px; font-size: 1rem; width: 100%; max-width: 300px;">
+                <button type="submit" style="padding: 10px 20px; font-size: 1rem; background-color: #4267B2; color: white; border: none; border-radius: 5px;">Calcular</button>
+            </form>
+            <!-- Sección para mostrar el resultado o error -->
+            {% if resultado is defined %}
+            <p style="font-size: 1.2rem; color: #333;">Resultado: {{ resultado }}</p>
+            {% elif error is defined %}
+            <p style="font-size: 1.2rem; color: red;">Error: {{ error }}</p>
+            {% endif %}
+            <!-- Botón para regresar a la página principal -->
+            <button onclick="window.location.href='/'" style="padding: 10px 20px; font-size: 1rem; background-color: #6c757d; color: white; border: none; border-radius: 5px; margin-top: 20px;">Regresar</button>
+        </div>
+    </main>
+</body>
+</html>
